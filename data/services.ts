@@ -7,6 +7,7 @@ export type ServicePillar = {
   homeOverview: {
     description: string;
     outcomeLine: string;
+    highlights: [string, string, string];
   };
 };
 
@@ -40,6 +41,7 @@ export const servicePillars: ServicePillar[] = [
       description:
         "Premium, conversion-aware websites that communicate value clearly and support your sales process.",
       outcomeLine: "Improve trust, lead quality, and decision speed.",
+      highlights: ["Business websites", "Landing pages", "Premium UI"],
     },
   },
   {
@@ -60,6 +62,7 @@ export const servicePillars: ServicePillar[] = [
       description:
         "Custom applications that streamline operations, centralize workflows, and remove repetitive manual effort.",
       outcomeLine: "Increase delivery speed and team productivity.",
+      highlights: ["Internal tools", "Dashboards", "Workflow systems"],
     },
   },
   {
@@ -80,6 +83,7 @@ export const servicePillars: ServicePillar[] = [
       description:
         "Practical AI systems that handle repetitive tasks, assist teams in real-time, and keep processes moving.",
       outcomeLine: "Cut operational drag and scale support without hiring pressure.",
+      highlights: ["AI chat assistants", "Lead capture", "Task automation"],
     },
   },
 ];

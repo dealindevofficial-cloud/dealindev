@@ -176,3 +176,29 @@ h6 {
   font-weight: 500;
   box-shadow: var(--shadow-md);
 }
+
+@keyframes ai-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+.ai-float-slow {
+  animation: ai-float 7s ease-in-out infinite;
+}
+
+.ai-float-fast {
+  animation: ai-float 5.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-float-slow,
+  .ai-float-fast {
+    animation: none;
+  }
+}

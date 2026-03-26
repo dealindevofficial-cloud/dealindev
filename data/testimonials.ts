@@ -1,31 +1,36 @@
 export type Testimonial = {
   quote: string;
   name: string;
-  company: string;
+  role: string;
+  businessType: string;
 };
 
 export const testimonialsSection = {
   eyebrow: "Social Proof",
-  title: "Trusted by teams that value outcomes and execution quality.",
+  title: "Trusted by teams that value reliable delivery.",
+  description: "Supporting modern business solutions with practical, measurable improvements.",
 } as const;
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Deal in Dev helped us turn a fragmented process into one streamlined system. The impact was immediate.",
-    name: "Operations Lead",
-    company: "B2B Services Firm",
+      "Deal in Dev helped us replace a patchwork of tools with one workflow our team actually uses. Handoffs are much smoother now.",
+    name: "Alicia M.",
+    role: "Operations Manager",
+    businessType: "B2B Services Team",
   },
   {
     quote:
-      "The team brought strategic clarity, strong communication, and execution discipline from day one.",
-    name: "Founder",
-    company: "Growth-Stage Startup",
+      "The process was clear and well managed. We always knew what was being built, why it mattered, and what was coming next.",
+    name: "Daniel R.",
+    role: "Founder",
+    businessType: "Product Startup",
   },
   {
     quote:
-      "We now ship faster and with more confidence because the platform finally matches how our business works.",
-    name: "Head of Delivery",
-    company: "Digital Product Company",
+      "We did not need a massive rebuild. We needed focused improvements, and that is exactly what we got.",
+    name: "Priya S.",
+    role: "Head of Delivery",
+    businessType: "Digital Services Company",
   },
 ];

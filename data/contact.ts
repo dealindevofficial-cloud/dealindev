@@ -1,22 +1,24 @@
 export const contactFormCopy = {
-  title: "Tell us what you are building.",
-  description: "Complete the form and we will follow up with a clear recommendation for next steps.",
+  title: "Tell us what you are trying to build, improve, or automate.",
+  description:
+    "Share your idea, current workflow, or business challenge and we will recommend the right next step for your goals.",
   submitNote:
-    "Prefer context first? Mention your current process and we will advise the best first move.",
+    "Every inquiry is reviewed manually. Expect a practical response focused on fit, scope, and delivery approach.",
 } as const;
 
 export const contactIntro = {
   eyebrow: "Contact",
-  title: "Start a project with clear business intent and a focused delivery path.",
+  title: "Start a focused client conversation about what your business needs next.",
   description:
-    "Share your goals and current bottlenecks. We will map a practical plan for websites, apps, or AI automation aligned to measurable outcomes.",
+    "Tell us what you are trying to build, improve, or automate. We help teams shape digital solutions that solve real workflow and growth challenges.",
 };
 
 export const contactServiceOptions = [
   "Website Development",
   "App Development",
-  "AI Agents & Automation",
-  "Unsure - Need Guidance",
+  "AI Agent",
+  "AI Automation",
+  "Not Sure Yet",
 ] as const;
 
 export const contactInfoBlocks = [

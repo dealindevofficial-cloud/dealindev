@@ -34,98 +34,113 @@ export default function ContactPage() {
       <Section className="pt-0">
         <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
           <Reveal className="min-w-0">
-            <Card className="space-y-8 p-7 md:p-10">
-            <Heading
-              level={2}
-              title={contactFormCopy.title}
-              description={contactFormCopy.description}
-            />
+            <Card className="space-y-8 border border-surface-border/80 bg-gradient-to-br from-background-elevated to-background p-7 shadow-lg shadow-black/30 md:space-y-9 md:p-10">
+              <Heading
+                level={2}
+                title={contactFormCopy.title}
+                description={contactFormCopy.description}
+              />
 
-            <form className="space-y-5" noValidate>
-              <div className="grid gap-5 md:grid-cols-2">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
-                  >
-                    Name
-                  </label>
-                  <Input id="name" name="name" autoComplete="name" placeholder="Your full name" />
+              <form className="space-y-6 md:space-y-7" noValidate>
+                <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                  <div className="space-y-2.5">
+                    <label
+                      htmlFor="name"
+                      className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+                    >
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      autoComplete="name"
+                      placeholder="Your full name"
+                      className="h-12 rounded-lg border-surface-border/80"
+                    />
+                  </div>
+
+                  <div className="space-y-2.5">
+                    <label
+                      htmlFor="email"
+                      className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@company.com"
+                      className="h-12 rounded-lg border-surface-border/80"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <label
-                    htmlFor="email"
+                    htmlFor="businessName"
                     className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
                   >
-                    Email
+                    Business Name
                   </label>
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="you@company.com"
+                    id="businessName"
+                    name="businessName"
+                    autoComplete="organization"
+                    placeholder="Your company or brand"
+                    className="h-12 rounded-lg border-surface-border/80"
                   />
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="businessName"
-                  className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
-                >
-                  Business Name
-                </label>
-                <Input
-                  id="businessName"
-                  name="businessName"
-                  autoComplete="organization"
-                  placeholder="Your company or brand"
-                />
-              </div>
+                <div className="space-y-2.5">
+                  <label
+                    htmlFor="serviceInterestedIn"
+                    className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+                  >
+                    Service Interested In
+                  </label>
+                  <Select
+                    id="serviceInterestedIn"
+                    name="serviceInterestedIn"
+                    defaultValue=""
+                    placeholder="Select the service that best fits"
+                    className="rounded-lg [&_button]:h-12 [&_button]:rounded-lg [&_button]:border-surface-border/80"
+                    options={contactServiceOptions.map((service) => ({
+                      value: service,
+                      label: service,
+                    }))}
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="serviceInterestedIn"
-                  className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
-                >
-                  Service Interested In
-                </label>
-                <Select
-                  id="serviceInterestedIn"
-                  name="serviceInterestedIn"
-                  defaultValue=""
-                  placeholder="Select a service focus"
-                  options={contactServiceOptions.map((service) => ({
-                    value: service,
-                    label: service,
-                  }))}
-                />
-              </div>
+                <div className="space-y-2.5">
+                  <div className="flex items-end justify-between gap-3">
+                    <label
+                      htmlFor="projectDetails"
+                      className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+                    >
+                      Project Details
+                    </label>
+                    <span className="text-xs text-foreground-muted">Include goals, timeline, and challenges</span>
+                  </div>
+                  <Textarea
+                    id="projectDetails"
+                    name="projectDetails"
+                    rows={6}
+                    placeholder="Share what you want to launch or improve, what is slowing your team down today, and what a successful outcome should look like."
+                    className="min-h-40 rounded-lg border-surface-border/80"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="projectDetails"
-                  className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
-                >
-                  Project Details
-                </label>
-                <Textarea
-                  id="projectDetails"
-                  name="projectDetails"
-                  rows={6}
-                  placeholder="Share your goals, timeline, and key workflow challenges."
-                />
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Button type="submit" size="lg">
-                  Start a Project
-                </Button>
-                <p className="text-sm text-foreground-muted">{contactFormCopy.submitNote}</p>
-              </div>
-            </form>
+                <div className="flex flex-wrap items-center gap-4 border-t border-surface-border/70 pt-4 md:pt-5">
+                  <Button type="submit" size="lg" className="rounded-lg px-8">
+                    Start the Conversation
+                  </Button>
+                  <p className="max-w-md text-sm leading-relaxed text-foreground-muted">
+                    {contactFormCopy.submitNote}
+                  </p>
+                </div>
+              </form>
             </Card>
           </Reveal>
 

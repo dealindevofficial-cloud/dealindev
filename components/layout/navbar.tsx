@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Container } from "@/components/layout/container";
 import { primaryNavigation } from "@/data/navigation";
@@ -15,6 +16,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,32 +31,56 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
+        "sticky top-0 z-50 border-b transition-all duration-500",
         isScrolled
-          ? "border-surface-border/70 bg-slate-950/85 shadow-md backdrop-blur-xl"
-          : "border-transparent bg-transparent",
+          ? "border-surface-border/65 bg-slate-950/72 shadow-lg backdrop-blur-2xl"
+          : "border-transparent bg-slate-950/20 backdrop-blur-md",
       )}
     >
       <Container>
-        <div className="flex h-16 items-center justify-between gap-6">
+        <div className="flex h-[4.25rem] items-center justify-between gap-6">
           <Link
             href={routes.home}
-            className="focus-ring rounded-sm text-lg font-bold tracking-tight transition-opacity hover:opacity-90"
+            className="focus-ring group rounded-sm transition-opacity hover:opacity-95"
           >
-            <span className="text-gradient-brand">Deal in Dev</span>
+            <span className="inline-flex items-center gap-2">
+              <span
+                aria-hidden
+                className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_14px_rgb(56_189_248_/_0.7)] transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-gradient-brand text-lg font-semibold tracking-[-0.02em]">
+                Deal in Dev
+              </span>
+            </span>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 md:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
             {primaryNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="focus-ring rounded-md px-3 py-2 text-sm font-medium text-foreground-muted transition-colors hover:bg-slate-800/40 hover:text-foreground"
+                className={cn(
+                  "focus-ring relative rounded-md px-3.5 py-2 text-sm font-medium transition-all duration-300",
+                  pathname === item.href
+                    ? "text-foreground"
+                    : "text-foreground-muted hover:text-foreground",
+                )}
               >
                 {item.label}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "pointer-events-none absolute inset-x-3 bottom-1 h-px origin-left bg-primary/80 transition-transform duration-300",
+                    pathname === item.href ? "scale-x-100" : "scale-x-0",
+                  )}
+                />
               </Link>
             ))}
           </nav>
@@ -65,7 +91,7 @@ export function Navbar() {
               transition={motionTransitionFast}
               whileHover={reduceMotion ? undefined : { y: -1 }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-              className="focus-ring inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-slate-950 shadow-md transition-colors duration-200 hover:bg-primary-strong hover:shadow-lg"
+              className="focus-ring inline-flex h-10 items-center justify-center rounded-md border border-primary/25 bg-primary px-5 text-sm font-semibold text-slate-950 shadow-[0_10px_28px_-14px_rgb(56_189_248_/_0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-strong hover:shadow-[0_16px_34px_-16px_rgb(56_189_248_/_1)]"
             >
               Book a Call
             </MotionLink>
@@ -73,7 +99,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="focus-ring inline-flex h-11 min-h-11 min-w-11 w-11 items-center justify-center rounded-md border border-surface-border bg-surface/60 text-foreground md:hidden"
+            className="focus-ring inline-flex h-11 min-h-11 min-w-11 w-11 items-center justify-center rounded-md border border-surface-border/80 bg-surface/65 text-foreground shadow-sm backdrop-blur md:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -106,17 +132,22 @@ export function Navbar() {
           id="mobile-menu"
           aria-label="Mobile"
           className={cn(
-            "grid transition-all duration-300 md:hidden",
-            isOpen ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]",
+            "grid transition-all duration-400 ease-out md:hidden",
+            isOpen ? "grid-rows-[1fr] pb-4 opacity-100" : "grid-rows-[0fr] opacity-0",
           )}
         >
           <div className="overflow-hidden" inert={!isOpen || undefined}>
-            <div className="surface-card space-y-2 rounded-lg p-3">
+            <div className="surface-card mt-1 space-y-2 rounded-xl p-3.5">
               {primaryNavigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="focus-ring block rounded-md px-3 py-2 text-sm text-foreground-muted transition hover:bg-slate-800/70 hover:text-foreground"
+                  className={cn(
+                    "focus-ring block rounded-md px-3 py-2.5 text-sm transition-all duration-300",
+                    pathname === item.href
+                      ? "bg-slate-800/65 text-foreground"
+                      : "text-foreground-muted hover:bg-slate-800/70 hover:text-foreground",
+                  )}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -127,7 +158,8 @@ export function Navbar() {
                 transition={motionTransitionFast}
                 whileHover={reduceMotion ? undefined : { y: -1 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-                className="focus-ring mt-2 inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-slate-950 shadow-md transition-colors duration-200 hover:bg-primary-strong hover:shadow-lg"
+                className="focus-ring mt-3 inline-flex h-10 w-full items-center justify-center rounded-md border border-primary/30 bg-primary px-4 text-sm font-semibold text-slate-950 shadow-[0_10px_28px_-16px_rgb(56_189_248_/_0.95)] transition-all duration-300 hover:bg-primary-strong"
+                onClick={() => setIsOpen(false)}
               >
                 Book a Call
               </MotionLink>
