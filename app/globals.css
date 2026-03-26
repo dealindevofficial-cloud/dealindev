@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  /* Core dark theme */
+  --background: #070b14;
+  --background-elevated: #111827;
+  --surface: #0f172a;
+  --surface-muted: #1e293b;
+  --surface-border: #334155;
+  --foreground: #f8fafc;
+  --foreground-muted: #94a3b8;
+
+  /* Premium accents */
+  --primary: #38bdf8;
+  --primary-strong: #0ea5e9;
+  /* Lighter accent for small type (WCAG AA on dark backgrounds) */
+  --primary-readable: #bae6fd;
+  --secondary: #a855f7;
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  /* Layout and typography */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --space-section-y: clamp(3rem, 6vw + 1rem, 6rem);
+  --space-content-x: clamp(1rem, 3.5vw, 2rem);
+  --line-title: 1.15;
+  --line-body: 1.6;
+
+  /* Effects */
+  --shadow-sm: 0 8px 24px -18px rgb(8 47 73 / 0.7);
+  --shadow-md: 0 14px 38px -20px rgb(8 47 73 / 0.85);
+  --shadow-lg: 0 26px 70px -36px rgb(8 47 73 / 0.95);
+  --gradient-premium: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+  --gradient-surface: radial-gradient(900px 600px at 15% 0%, rgb(56 189 248 / 0.06), transparent 55%),
+    radial-gradient(800px 500px at 95% 5%, rgb(168 85 247 / 0.05), transparent 55%),
+    linear-gradient(180deg, #070b14 0%, #0b1220 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-border: var(--surface-border);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-readable: var(--primary-readable);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: var(--gradient-surface);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: var(--line-body);
+}
+
+* {
+  border-color: var(--surface-border);
+}
+
+::selection {
+  background: rgb(56 189 248 / 0.3);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--line-title);
+  letter-spacing: -0.02em;
+}
+
+.surface-card {
+  background: linear-gradient(160deg, rgb(30 41 59 / 0.7), rgb(15 23 42 / 0.85));
+  border: 1px solid rgb(148 163 184 / 0.22);
+  box-shadow: var(--shadow-sm);
+}
+
+/*
+ * Keyboard focus: visible ring. Do not use :focus { outline: none } on inputs —
+ * it overrides :focus-visible and hides focus for keyboard users.
+ */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid rgb(226 232 240 / 0.65);
+  outline-offset: 3px;
+}
+
+.focus-ring:is(input, textarea, select, button):focus {
+  border-color: rgb(186 230 253 / 0.55);
+}
+
+.focus-ring:is(input, textarea, select, button):focus-visible {
+  outline: 2px solid rgb(226 232 240 / 0.7);
+  outline-offset: 2px;
+}
+
+.text-gradient-brand {
+  background-image: var(--gradient-premium);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* First tab stop: keyboard users jump past chrome to main content */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
 }

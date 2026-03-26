@@ -1,0 +1,9 @@
+export { HeroSection } from "./hero-section";
+export { TrustStrip } from "./trust-strip";
+export { ServicesOverviewSection } from "./services-overview-section";
+export { WhyDealInDevSection } from "./why-deal-in-dev-section";
+export { ProcessSection } from "./process-section";
+export { PortfolioPreviewSection } from "./portfolio-preview-section";
+export { AiSolutionsSection } from "./ai-solutions-section";
+export { TestimonialsSection } from "./testimonials-section";
+export { FinalCtaSection } from "./final-cta-section";
