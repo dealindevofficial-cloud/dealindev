@@ -1,16 +1,16 @@
 export const contactFormCopy = {
-  title: "Tell us what you are trying to build, improve, or automate.",
+  title: "What do you want to build, improve, or automate?",
   description:
-    "Share your idea, current workflow, or business challenge and we will recommend the right next step for your goals.",
+    "Share your idea, workflow, or challenge—we will suggest the right next step.",
   submitNote:
-    "Every inquiry is reviewed manually. Expect a practical response focused on fit, scope, and delivery approach.",
+    "Inquiries are reviewed manually. You get a practical reply on fit, scope, and approach.",
 } as const;
 
 export const contactIntro = {
   eyebrow: "Contact",
-  title: "Start a focused client conversation about what your business needs next.",
+  title: "A focused conversation on what your business needs next.",
   description:
-    "Tell us what you are trying to build, improve, or automate. We help teams shape digital solutions that solve real workflow and growth challenges.",
+    "Build, improve, or automate—we help shape digital solutions for real workflow and growth challenges.",
 };
 
 export const contactServiceOptions = [
@@ -24,9 +24,9 @@ export const contactServiceOptions = [
 export const contactInfoBlocks = [
   {
     title: "Business Email",
-    detail: "hello@dealindev.com",
+    detail: "dealindevofficial@gmail.com",
     helper: "Best for project scope and delivery discussions.",
-    href: "mailto:hello@dealindev.com",
+    href: "mailto:dealindevofficial@gmail.com",
   },
   {
     title: "Response Window",
@@ -36,6 +36,6 @@ export const contactInfoBlocks = [
   {
     title: "Engagement Focus",
     detail: "Web, Apps, and AI Operations",
-    helper: "Built to improve execution quality and workflow speed.",
+    helper: "Execution quality and workflow speed.",
   },
 ] as const;

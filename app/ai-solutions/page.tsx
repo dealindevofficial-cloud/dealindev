@@ -5,15 +5,15 @@ import { aiSolutionsHighlight } from "@/data/home";
 export const metadata: Metadata = {
   title: "AI Solutions | Deal in Dev",
   description:
-    "Practical AI agents, automation, and workflow systems designed around real operations — not novelty.",
+    "AI agents and automation for real operations—not novelty demos.",
 };
 
 export default function AiSolutionsPage() {
   return (
     <FuturePageIntro
       eyebrow={aiSolutionsHighlight.eyebrow}
-      title="A dedicated hub for AI systems and automation is coming."
-      description={`${aiSolutionsHighlight.description} This page will expand with service detail, example architectures, and engagement models.`}
+      title="A dedicated AI and automation hub is coming."
+      description={`${aiSolutionsHighlight.description} More service detail, examples, and engagement options soon.`}
     />
   );
 }

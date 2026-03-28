@@ -6,25 +6,25 @@ export type PortfolioPreview = {
 
 export const portfolioPreviewSection = {
   eyebrow: "Selected Work",
-  title: "Recent systems built for business performance.",
-  description: "Representative previews to show how strategy translates into practical delivery.",
+  title: "Recent systems for business performance.",
+  description: "How strategy turns into practical delivery.",
   ctaLabel: "View Work",
 } as const;
 
 export const portfolioPreviews: PortfolioPreview[] = [
   {
     name: "Operations Dashboard",
-    summary: "Unified reporting across sales, delivery, and support workflows.",
-    impact: "Replaced 5 disconnected spreadsheets and reduced status reporting time by 60%.",
+    summary: "Unified reporting for sales, delivery, and support.",
+    impact: "Five spreadsheets replaced; status reporting time down ~60%.",
   },
   {
     name: "Service Booking Platform",
-    summary: "High-trust booking flow with qualification and routing built in.",
-    impact: "Lifted qualified inquiries and improved conversion from first touch to call.",
+    summary: "Booking flow with qualification and routing built in.",
+    impact: "More qualified inquiries; better first-touch-to-call conversion.",
   },
   {
     name: "AI Intake Assistant",
-    summary: "Automated lead triage with context handoff to internal teams.",
-    impact: "Cut response time and reduced repetitive intake tasks each day.",
+    summary: "Lead triage with clean handoff to internal teams.",
+    impact: "Faster responses; less repetitive intake work daily.",
   },
 ];

@@ -1,8 +1,8 @@
 export const positioningNarrative = {
   eyebrow: "About Deal in Dev",
-  title: "A business outcomes partner for modern software and AI execution.",
+  title: "A partner for software and AI that drives business outcomes.",
   description:
-    "Deal in Dev helps teams translate growth and operations goals into practical digital systems. We combine strategic clarity with hands-on delivery across websites, apps, and AI automation so every build supports measurable business momentum.",
+    "We turn growth and ops goals into practical systems—websites, apps, and AI—with strategic clarity and hands-on delivery.",
 };
 
 export const missionAndApproach = {
@@ -18,37 +18,37 @@ export const missionAndApproach = {
 
 export const valuePrinciplesSection = {
   eyebrow: "Value Principles",
-  title: "How we work with teams that value clarity and momentum.",
+  title: "How we work with clarity-focused teams.",
   description:
-    "These principles guide every engagement and keep execution aligned with business priorities.",
+    "Principles that keep every engagement aligned with business priorities.",
 } as const;
 
 export const valuePrinciples = [
   {
     title: "Outcome-led execution",
     description:
-      "Every scope decision ties back to a business objective, from conversion improvement to workflow efficiency.",
+      "Scope ties to objectives—from conversion to workflow efficiency.",
   },
   {
     title: "Clear communication",
     description:
-      "You get direct updates, transparent trade-offs, and a shared understanding of priorities at every stage.",
+      "Direct updates, transparent trade-offs, and shared priorities at every stage.",
   },
   {
     title: "Systems thinking",
     description:
-      "We do not build isolated pages or features. We build connected systems that support growth over time.",
+      "Connected systems for growth—not isolated pages or one-off features.",
   },
   {
     title: "Quality without noise",
     description:
-      "Modern polish, practical architecture, and disciplined delivery without unnecessary complexity.",
+      "Polish and practical architecture without unnecessary complexity.",
   },
 ];
 
 export const trustCta = {
   eyebrow: "Ready to Work Together",
-  title: "Bring your goals, and we will shape the right technical path with you.",
+  title: "Bring your goals; we shape the technical path with you.",
   description:
-    "Whether you need a stronger web presence, a product platform, or AI-powered operations support, we build with clarity, accountability, and long-term trust.",
+    "Web, product, or AI ops—we build with clarity, accountability, and long-term trust.",
 };

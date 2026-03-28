@@ -39,8 +39,8 @@ export const servicePillars: ServicePillar[] = [
     ],
     homeOverview: {
       description:
-        "Premium, conversion-aware websites that communicate value clearly and support your sales process.",
-      outcomeLine: "Improve trust, lead quality, and decision speed.",
+        "Conversion-aware sites that communicate value and support your sales motion.",
+      outcomeLine: "Better trust, lead quality, and decision speed.",
       highlights: ["Business websites", "Landing pages", "Premium UI"],
     },
   },
@@ -60,8 +60,8 @@ export const servicePillars: ServicePillar[] = [
     ],
     homeOverview: {
       description:
-        "Custom applications that streamline operations, centralize workflows, and remove repetitive manual effort.",
-      outcomeLine: "Increase delivery speed and team productivity.",
+        "Custom apps that streamline ops, centralize workflows, and cut manual work.",
+      outcomeLine: "Faster delivery and higher team productivity.",
       highlights: ["Internal tools", "Dashboards", "Workflow systems"],
     },
   },
@@ -81,8 +81,8 @@ export const servicePillars: ServicePillar[] = [
     ],
     homeOverview: {
       description:
-        "Practical AI systems that handle repetitive tasks, assist teams in real-time, and keep processes moving.",
-      outcomeLine: "Cut operational drag and scale support without hiring pressure.",
+        "AI that handles repetitive work, assists teams in real time, and keeps processes moving.",
+      outcomeLine: "Less drag; scale support without immediate hiring pressure.",
       highlights: ["AI chat assistants", "Lead capture", "Task automation"],
     },
   },
@@ -91,27 +91,27 @@ export const servicePillars: ServicePillar[] = [
 export const servicesPageCopy = {
   hero: {
     eyebrow: "Services",
-    title: "Build digital systems that improve how your business operates.",
+    title: "Digital systems that improve how your business operates.",
     description:
-      "From websites to apps to AI automation, each engagement is designed to reduce friction, improve clarity, and create measurable momentum.",
+      "Websites, apps, and AI—each scoped to cut friction, add clarity, and build momentum.",
   },
   benefits: {
     eyebrow: "Why Teams Choose Deal in Dev",
     title: "Execution clarity without agency noise.",
     description:
-      "We focus on what makes your workflow and delivery system stronger, then build accordingly.",
+      "We strengthen your workflow and delivery system, then build to match.",
   },
   process: {
     eyebrow: "Process",
-    title: "A structured delivery path from idea to impact.",
+    title: "From idea to impact—with clear checkpoints.",
     description:
-      "You get predictable momentum, clear checkpoints, and systems built for long-term value.",
+      "Predictable momentum and systems built for long-term value.",
   },
   closingCta: {
     eyebrow: "Ready to Start",
-    title: "Bring your workflow goals, and we will map the right technical path.",
+    title: "Share your workflow goals; we map the technical path.",
     description:
-      "Whether you need a website refresh, a custom app, or AI automation, we can define the highest-leverage first move together.",
+      "Site refresh, custom app, or AI—we define the highest-leverage first move together.",
     primaryCta: "Start a Project",
     secondaryCta: "Discuss Your Workflow",
   },

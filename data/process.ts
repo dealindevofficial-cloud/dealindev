@@ -7,25 +7,25 @@ export type HomeProcessStep = {
 
 export const homeProcessSection = {
   eyebrow: "Process",
-  title: "A strategic process built for reliable execution.",
+  title: "A process built for reliable execution.",
   description:
-    "Each stage is designed to reduce risk, create clarity, and keep delivery aligned with business goals.",
+    "Each stage cuts risk, adds clarity, and stays aligned with your goals.",
   steps: [
     {
       name: "Discover",
-      detail: "Understand goals, bottlenecks, and workflow gaps before any solution is proposed.",
+      detail: "Clarify goals, bottlenecks, and gaps before proposing solutions.",
     },
     {
       name: "Plan",
-      detail: "Define the right system, structure, and rollout path so decisions stay focused and practical.",
+      detail: "Define system scope and rollout so decisions stay practical.",
     },
     {
       name: "Build",
-      detail: "Develop with clarity, speed, and real business alignment through steady collaboration.",
+      detail: "Ship with speed and alignment through steady collaboration.",
     },
     {
       name: "Launch & Improve",
-      detail: "Deploy, refine, and support long-term use with measured iteration after release.",
+      detail: "Deploy, refine, and iterate with measured improvements after launch.",
     },
   ] satisfies HomeProcessStep[],
 };
