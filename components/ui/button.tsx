@@ -34,6 +34,7 @@ export function Button({
   return (
     <button
       type={type}
+      suppressHydrationWarning
       className={cn(
         "focus-ring inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 hover:-translate-y-px active:translate-y-0 active:scale-[0.985] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none motion-reduce:active:scale-100",
         variantClasses[variant],
