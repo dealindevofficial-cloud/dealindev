@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-surface-border pt-6 text-sm text-foreground-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {siteBrand.legalName}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {siteBrand.legalName}. Serving businesses across the {siteBrand.areaServed}.</p>
           <a href={`mailto:${siteBrand.email}`} className="focus-ring rounded-sm transition-colors hover:text-accent">
             {siteBrand.email}
           </a>
