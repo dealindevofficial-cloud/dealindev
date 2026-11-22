@@ -66,21 +66,24 @@ export default function ServicesPage() {
       {servicePillars.map((pillar, index) => (
         <Section key={pillar.slug} id={pillar.slug} tone={index % 2 === 0 ? "light" : "tint"} aria-labelledby={`${pillar.slug}-title`}>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-            <Reveal className="space-y-6">
+            <Reveal className="min-w-0 space-y-6">
               <ServiceIcon name={pillar.icon} />
-              <h2 id={`${pillar.slug}-title`} className="text-3xl text-foreground sm:text-4xl">
+              <h2 id={`${pillar.slug}-title`} className="text-3xl break-words text-foreground sm:text-4xl">
                 {pillar.title}
               </h2>
               <p className="max-w-[36rem] text-lg leading-relaxed text-foreground-muted">{pillar.summary}</p>
               <Link
                 href={pillar.icon === "ai" ? routes.aiSolutions : routes.contact}
-                className={buttonVariants({ variant: "secondary" })}
+                className={buttonVariants({
+                  variant: "secondary",
+                  className: "h-auto min-h-12 max-w-full py-3 text-center whitespace-normal sm:whitespace-nowrap",
+                })}
               >
                 {pillar.icon === "ai" ? "Explore AI solutions" : `Discuss your ${pillar.title.toLowerCase()} project`}
                 <ArrowIcon />
               </Link>
             </Reveal>
-            <Reveal delay={0.1} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            <Reveal delay={0.1} className="grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-1">
               <Card>
                 <h3 className="label text-accent-text">Business outcomes</h3>
                 <div className="mt-5">
