@@ -76,7 +76,7 @@ export default function ServicesPage() {
                 href={pillar.icon === "ai" ? routes.aiSolutions : routes.contact}
                 className={buttonVariants({
                   variant: "secondary",
-                  className: "h-auto min-h-12 max-w-full py-3 text-center whitespace-normal sm:whitespace-nowrap",
+                  className: "h-auto! min-h-12 max-w-full py-3 text-center whitespace-normal! sm:whitespace-nowrap!",
                 })}
               >
                 {pillar.icon === "ai" ? "Explore AI solutions" : `Discuss your ${pillar.title.toLowerCase()} project`}
