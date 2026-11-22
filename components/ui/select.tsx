@@ -31,7 +31,7 @@ export type SelectProps = {
 };
 
 const triggerBase =
-  "focus-ring flex h-12 w-full items-center justify-between gap-3 rounded-md border border-surface-border bg-background-elevated px-4 text-left text-base transition-colors md:h-11 md:text-sm";
+  "focus-ring flex h-12 w-full items-center justify-between gap-3 rounded-[var(--radius-md)] border border-surface-border bg-surface px-4 text-left text-base transition-colors duration-200 hover:border-accent/50 focus:border-accent";
 
 export function Select({
   id,
@@ -227,7 +227,7 @@ export function Select({
           id={listboxId}
           role="listbox"
           aria-label={placeholder}
-          className="absolute left-0 right-0 top-full z-50 mt-1.5 max-h-60 overflow-y-auto rounded-md border border-surface-border bg-background-elevated py-1 shadow-lg shadow-black/45 ring-1 ring-primary/15"
+          className="absolute left-0 right-0 top-full z-50 mt-1.5 max-h-60 overflow-y-auto rounded-[var(--radius-md)] border border-surface-border bg-surface py-1.5 shadow-lg"
         >
           {allOptions.map((opt, index) => {
             const highlighted = highlightedIndex === index;
@@ -241,10 +241,10 @@ export function Select({
                 aria-disabled={opt.disabled || undefined}
                 data-option-index={index}
                 className={cn(
-                  "mx-1 cursor-pointer rounded-sm px-3 py-2.5 text-sm transition-colors",
-                  opt.disabled && "cursor-default text-foreground-muted/75",
-                  !opt.disabled && highlighted && "bg-primary/25 text-primary-readable",
-                  !opt.disabled && !highlighted && "text-foreground hover:bg-primary/15 hover:text-foreground",
+                  "mx-1.5 cursor-pointer rounded-[var(--radius-sm)] px-3 py-2.5 text-sm transition-colors",
+                  opt.disabled && "cursor-default text-foreground-muted",
+                  !opt.disabled && highlighted && "bg-accent-soft text-accent-text",
+                  !opt.disabled && !highlighted && "text-foreground",
                   isSelected && !opt.disabled && "font-medium",
                 )}
                 onMouseEnter={() => !opt.disabled && setHighlightedIndex(index)}

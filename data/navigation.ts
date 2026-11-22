@@ -11,8 +11,8 @@ export type FooterLinkGroup = {
 };
 
 export const primaryNavigation: NavItem[] = [
-  { label: "Home", href: routes.home },
   { label: "Services", href: routes.services },
+  { label: "AI Solutions", href: routes.aiSolutions },
   { label: "Work", href: routes.work },
   { label: "About", href: routes.about },
   { label: "Contact", href: routes.contact },
@@ -22,8 +22,8 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Services",
     links: [
-      { label: "Website Development", href: routes.services },
-      { label: "App Development", href: routes.services },
+      { label: "Website Development", href: `${routes.services}#website-development` },
+      { label: "App Development", href: `${routes.services}#app-development` },
       { label: "AI Agents & Automation", href: routes.aiSolutions },
     ],
   },
@@ -38,17 +38,17 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: routes.about },
-      { label: "Process", href: routes.services },
+      { label: "About Us", href: routes.about },
+      { label: "Our Process", href: `${routes.services}#process` },
       { label: "Contact", href: routes.contact },
     ],
   },
   {
-    title: "Start",
+    title: "Get Started",
     links: [
-      { label: "Book a Call", href: routes.bookACall },
+      { label: "Book a Strategy Call", href: routes.contact },
       { label: "Start a Project", href: routes.contact },
-      { label: "Discuss Your Workflow", href: routes.contact },
+      { label: "Email Us", href: "mailto:dealindevofficial@gmail.com" },
     ],
   },
 ];

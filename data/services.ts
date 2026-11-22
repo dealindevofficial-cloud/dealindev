@@ -1,4 +1,8 @@
+export type ServiceIcon = "web" | "app" | "ai";
+
 export type ServicePillar = {
+  slug: string;
+  icon: ServiceIcon;
   title: string;
   summary: string;
   outcomes: string[];
@@ -24,140 +28,137 @@ export type ServiceProcessStep = {
 
 export const servicePillars: ServicePillar[] = [
   {
-    title: "Website Development",
+    slug: "website-development",
+    icon: "web",
+    title: "Custom Website Development",
     summary:
-      "Premium, conversion-aware websites that clarify your offer, strengthen trust, and move buyers to action.",
+      "Fast, SEO-ready business websites that clarify your offer, build trust and turn visitors into qualified leads.",
     outcomes: [
-      "Clearer positioning that helps qualified prospects self-identify faster.",
-      "Improved lead quality through intentional page architecture and messaging.",
-      "A polished brand experience that supports sales conversations.",
+      "Clear positioning that helps the right buyers self-qualify faster",
+      "Higher lead quality from intentional page structure and messaging",
+      "Top-tier Core Web Vitals and technical SEO from day one",
     ],
     deliverables: [
-      "Positioning-led homepage and conversion page flows",
-      "Responsive component system for long-term scalability",
-      "Performance and SEO foundations ready for growth",
+      "Conversion-focused homepage and landing pages",
+      "Responsive design system built on Next.js",
+      "On-page SEO, analytics and performance setup",
     ],
     homeOverview: {
-      description:
-        "Conversion-aware sites that communicate value and support your sales motion.",
-      outcomeLine: "Better trust, lead quality, and decision speed.",
-      highlights: ["Business websites", "Landing pages", "Premium UI"],
+      description: "High-performance websites that communicate value, rank on Google and support your sales process.",
+      outcomeLine: "More trust, better leads, faster decisions.",
+      highlights: ["Business websites", "Landing pages", "Technical SEO"],
     },
   },
   {
-    title: "App Development",
+    slug: "app-development",
+    icon: "app",
+    title: "Web & Mobile App Development",
     summary:
-      "Custom internal and client-facing applications that reduce operational friction and centralize critical workflows.",
+      "Custom business software, from client portals to internal tools, that removes operational friction and centralizes key workflows.",
     outcomes: [
-      "Less manual coordination and fewer process bottlenecks.",
-      "Faster delivery cycles with clear ownership across teams.",
-      "Higher operational visibility through better systems and tooling.",
+      "Less manual coordination and fewer process bottlenecks",
+      "Faster delivery cycles with clear ownership across teams",
+      "Real-time visibility into operations and performance",
     ],
     deliverables: [
-      "Workflow mapping and architecture planning",
-      "Role-aware dashboards, portals, and core business logic",
-      "Structured handoff documentation and iteration roadmap",
+      "Workflow mapping and solution architecture",
+      "Role-based dashboards, portals and core business logic",
+      "Documentation, handoff and an iteration roadmap",
     ],
     homeOverview: {
-      description:
-        "Custom apps that streamline ops, centralize workflows, and cut manual work.",
-      outcomeLine: "Faster delivery and higher team productivity.",
-      highlights: ["Internal tools", "Dashboards", "Workflow systems"],
+      description: "Custom web and mobile apps that streamline operations and replace spreadsheets and manual work.",
+      outcomeLine: "Faster delivery and a more productive team.",
+      highlights: ["Internal tools", "Client portals", "Dashboards"],
     },
   },
   {
+    slug: "ai-automation",
+    icon: "ai",
     title: "AI Agents & Automation",
     summary:
-      "Practical AI systems designed around real workflows, from repetitive task execution to intelligent team assistance.",
+      "Practical AI chatbots, voice agents and automations designed around your real workflows, not novelty demos.",
     outcomes: [
-      "Reduced time spent on low-leverage, repetitive work.",
-      "Improved response consistency in support and internal operations.",
-      "Scalable delivery without immediate hiring pressure.",
+      "Hours of repetitive work removed every week",
+      "Consistent, instant responses across support and sales",
+      "Scale your operations without immediate hiring pressure",
     ],
     deliverables: [
-      "Workflow opportunity audit for automation fit",
-      "AI-assisted task orchestration and process automations",
-      "Monitoring, safeguards, and optimization loops",
+      "Automation opportunity audit and ROI mapping",
+      "AI agents, chatbots and workflow orchestration",
+      "Monitoring, safeguards and continuous optimization",
     ],
     homeOverview: {
-      description:
-        "AI that handles repetitive work, assists teams in real time, and keeps processes moving.",
-      outcomeLine: "Less drag; scale support without immediate hiring pressure.",
-      highlights: ["AI chat assistants", "Lead capture", "Task automation"],
+      description: "AI agents and automations that handle repetitive work and keep your processes moving 24/7.",
+      outcomeLine: "Less busywork, more capacity to grow.",
+      highlights: ["AI chatbots", "Voice agents", "Workflow automation"],
     },
   },
 ];
 
 export const servicesPageCopy = {
   hero: {
-    eyebrow: "Services",
-    title: "Digital systems that improve how your business operates.",
+    eyebrow: "Our Services",
+    title: "Web development, apps and AI automation for growing businesses.",
+    highlight: "AI automation",
     description:
-      "Websites, apps, and AI—each scoped to cut friction, add clarity, and build momentum.",
+      "Every engagement is scoped to reduce friction, add clarity and create momentum, so you invest in systems that pay for themselves.",
   },
   benefits: {
-    eyebrow: "Why Teams Choose Deal in Dev",
-    title: "Execution clarity without agency noise.",
-    description:
-      "We strengthen your workflow and delivery system, then build to match.",
+    eyebrow: "Why Teams Choose Us",
+    title: "Senior execution without agency overhead.",
+    highlight: "without agency overhead",
+    description: "We strengthen your workflows and delivery systems first, then build software that matches how you work.",
   },
   process: {
-    eyebrow: "Process",
-    title: "From idea to impact—with clear checkpoints.",
-    description:
-      "Predictable momentum and systems built for long-term value.",
+    eyebrow: "How We Work",
+    title: "From idea to impact, with clear checkpoints.",
+    highlight: "clear checkpoints",
+    description: "A predictable four-step process that keeps scope, budget and quality under control.",
   },
   closingCta: {
     eyebrow: "Ready to Start",
-    title: "Share your workflow goals; we map the technical path.",
+    title: "Tell us your goals. We will map the fastest path to results.",
     description:
-      "Site refresh, custom app, or AI—we define the highest-leverage first move together.",
-    primaryCta: "Start a Project",
-    secondaryCta: "Discuss Your Workflow",
+      "Whether it is a website redesign, a custom app or an AI agent, we will help you identify the highest-impact first move.",
+    primaryCta: "Start Your Project",
+    secondaryCta: "Explore AI Solutions",
   },
 } as const;
 
 export const serviceBenefits: ServiceBenefit[] = [
   {
-    title: "Business-First Execution",
-    description:
-      "Every recommendation ties back to operational impact, not just implementation complexity.",
+    title: "Business-first execution",
+    description: "Every recommendation ties back to revenue, efficiency or customer experience, not technical vanity.",
   },
   {
-    title: "Senior-Level Delivery Standards",
-    description:
-      "Clear communication, practical architecture decisions, and disciplined shipping rhythm from start to finish.",
+    title: "Senior-level delivery",
+    description: "Clear communication, sound architecture decisions and a disciplined shipping rhythm from kickoff to launch.",
   },
   {
-    title: "Systems You Can Grow With",
-    description:
-      "Solutions are designed for maintainability so your team can scale without rebuilding core foundations.",
+    title: "Systems that scale",
+    description: "Maintainable, well-documented solutions your team can grow with, without costly rebuilds.",
   },
 ];
 
 export const serviceProcessSteps: ServiceProcessStep[] = [
   {
-    step: "Step 1",
+    step: "01",
     title: "Discover",
-    detail:
-      "Align on goals, constraints, and workflow pain points so priorities are anchored in business reality.",
+    detail: "We align on goals, constraints and workflow pain points so priorities are anchored in business reality.",
   },
   {
-    step: "Step 2",
-    title: "Design the Plan",
-    detail:
-      "Define scope, architecture direction, delivery milestones, and decision checkpoints.",
+    step: "02",
+    title: "Plan",
+    detail: "We define scope, architecture, milestones and decision checkpoints before a line of code is written.",
   },
   {
-    step: "Step 3",
-    title: "Build and Integrate",
-    detail:
-      "Ship in focused iterations with feedback loops to keep quality high and risk low.",
+    step: "03",
+    title: "Build & Integrate",
+    detail: "We ship in focused iterations with regular demos and feedback, keeping quality high and risk low.",
   },
   {
-    step: "Step 4",
-    title: "Launch and Improve",
-    detail:
-      "Measure outcomes, remove friction, and improve performance as usage and business needs evolve.",
+    step: "04",
+    title: "Launch & Improve",
+    detail: "We measure results, remove friction and keep improving performance as your business grows.",
   },
 ];

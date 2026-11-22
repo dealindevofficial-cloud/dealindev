@@ -1,94 +1,122 @@
 export const heroContent = {
-  eyebrow: "Software + AI Systems",
-  title: "Digital systems built for how your business runs and grows.",
+  eyebrow: "Custom Software & AI Automation",
+  title: "Websites, apps and AI built to grow your business.",
+  highlight: "grow",
   description:
-    "We partner with operations-minded teams on websites, apps, and AI that cut bottlenecks and drive clear, measurable results.",
-  primaryCta: { label: "Book a Call" },
-  secondaryCta: { label: "View Services" },
+    "Deal in Dev is a custom web development company and AI automation agency for US businesses. We design, build and launch digital systems that win more leads, save hours every week and scale with you.",
+  primaryCta: { label: "Book a Free Strategy Call" },
+  secondaryCta: { label: "Explore Our Services" },
 } as const;
 
 export const heroOutcomePanel = {
-  title: "Outcomes, Not Busywork",
+  title: "Outcomes, not busywork",
   bullets: [
-    "Faster lead flow with AI-first workflows",
-    "Customer journeys that convert with confidence",
+    "Faster lead response with AI-first workflows",
+    "Customer journeys designed to convert",
     "Internal tools that save hours every week",
   ],
 } as const;
 
 export const trustStrip = {
-  ariaLabel: "Delivery and trust highlights",
+  ariaLabel: "How we deliver",
   points: [
-    "Business-first delivery",
-    "Senior-level execution",
-    "Transparent communication",
-    "Built for long-term scale",
+    "Business-first strategy",
+    "Senior-level engineering",
+    "Transparent weekly updates",
+    "SEO & performance built in",
+    "AI where it pays off",
+    "Built to scale long term",
   ],
 } as const;
 
 export const heroCapabilityStrip = {
-  ariaLabel: "Core delivery capabilities",
-  points: ["Websites", "Apps", "AI Automations", "Business Systems"],
+  ariaLabel: "Core capabilities",
+  points: ["Web Development", "Mobile & Web Apps", "AI Agents", "Business Automation"],
 } as const;
 
 export const servicesOverviewSection = {
-  eyebrow: "Business Solutions",
-  title: "Systems that move revenue, operations, and delivery forward.",
+  eyebrow: "What We Build",
+  title: "Digital systems that move revenue and operations forward.",
+  highlight: "revenue and operations",
   description:
-    "Web, apps, and AI—scoped around measurable outcomes, not generic packages.",
+    "From high-converting websites to custom apps and AI agents, every engagement is scoped around a measurable business outcome.",
 } as const;
 
 export const whyDealInDevSection = {
   eyebrow: "Why Deal in Dev",
-  title: "Strategic systems—not surface-level code.",
+  title: "A strategic technology partner, not just another dev shop.",
+  highlight: "strategic technology partner",
   description:
-    "Development, business context, and practical AI—so operations and growth improve together.",
+    "We combine engineering, business context and practical AI so your operations and growth improve together.",
   differentiators: [
-    "Strategy-led builds tied to real constraints and outcomes.",
-    "Systems thinking over one-off fixes, for scaling with confidence.",
-    "AI and automation where they deliver measurable value.",
-    "Delivery built for long-term clarity and maintainability.",
+    {
+      title: "Strategy before code",
+      description: "Every build is tied to real constraints, KPIs and the outcomes your team is accountable for.",
+    },
+    {
+      title: "Systems thinking",
+      description: "Connected platforms instead of one-off fixes, so you can scale without rebuilding.",
+    },
+    {
+      title: "Practical AI",
+      description: "Automation and AI agents deployed only where they deliver clear, measurable value.",
+    },
+    {
+      title: "Built to last",
+      description: "Clean architecture, documentation and handoff that keep your systems maintainable.",
+    },
   ],
 } as const;
 
 export const aiSolutionsHighlight = {
-  eyebrow: "AI Solutions",
-  title: "AI agents and automation for daily operations.",
+  eyebrow: "AI Automation",
+  title: "AI agents that work around the clock for your team.",
+  highlight: "around the clock",
   description:
-    "Workflows that speed responses, cut repetitive work, and free teams for higher-value decisions.",
+    "Custom AI chatbots, voice agents and workflow automations that respond instantly, qualify leads and remove repetitive work across sales and support.",
   valuePoints: [
-    "Fewer manual handoffs across sales and support.",
-    "Leads and questions handled faster, consistently.",
-    "Reliable workflows your team can run every day.",
+    "Fewer manual handoffs across sales and support",
+    "Every lead and question answered in seconds",
+    "Reliable workflows your team can trust daily",
   ],
   capabilities: [
     "AI Chat Assistants",
     "AI Lead Qualification",
     "AI Appointment Booking",
-    "AI Support Automation",
-    "AI Calling Workflows",
+    "AI Customer Support",
+    "AI Voice & Calling Agents",
     "Internal Workflow Automation",
   ],
   useCases: [
-    "Qualify leads instantly and route the right prospects to the next step.",
-    "Automate booking, reminders, and follow-ups to cut no-shows and admin.",
-    "AI handles common support; your team takes the complex cases.",
-    "Connect CRM, forms, and tools so work moves without constant manual updates.",
+    {
+      title: "Qualify leads instantly",
+      description: "AI scores and routes every inbound lead to the right next step, day or night.",
+    },
+    {
+      title: "Automate booking and follow-ups",
+      description: "Scheduling, reminders and follow-ups run on their own, cutting no-shows and admin time.",
+    },
+    {
+      title: "Resolve common support requests",
+      description: "AI handles routine questions so your team can focus on complex, high-value cases.",
+    },
+    {
+      title: "Connect your tools",
+      description: "CRM, forms and internal tools stay in sync without constant manual updates.",
+    },
   ],
 } as const;
 
 export const finalCtaSection = {
-  eyebrow: "Next Step",
-  title: "Build what your business needs next.",
+  eyebrow: "Let's Build",
+  title: "Ready to build what your business needs next?",
   description:
-    "Replace workarounds with a digital foundation—more speed, clarity, and control for your team.",
-  leadIntent:
-    "Book a focused call to decide what to build, improve, or automate first.",
+    "Book a free 30-minute strategy call. You will leave with a clear recommendation on what to build, improve or automate first, with no obligation.",
   valuePoints: [
-    "Turn bottlenecks into reliable workflows.",
-    "Align web, apps, and automations to measurable outcomes.",
-    "Leave with a technical plan that fits your growth.",
+    "A clear, prioritized technical plan",
+    "Honest advice on scope, budget and timeline",
+    "A reply within one business day",
   ],
-  primaryCta: { label: "Book a Call" },
-  secondaryCta: { label: "Discuss Your Needs" },
+  primaryCta: { label: "Book a Free Strategy Call" },
+  secondaryCta: { label: "Email Our Team" },
 } as const;

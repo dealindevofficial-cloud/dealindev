@@ -56,6 +56,7 @@ export function ContactForm() {
       <Heading
         level={2}
         title={contactFormCopy.title}
+        className="[&_h2]:text-3xl"
         description={contactFormCopy.description}
       />
 
@@ -64,8 +65,8 @@ export function ContactForm() {
           role={status === "error" ? "alert" : "status"}
           className={
             status === "success"
-              ? "rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm text-foreground"
-              : "rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-foreground"
+              ? "rounded-[var(--radius-md)] border border-accent/40 bg-accent-soft px-4 py-3 text-sm text-foreground"
+              : "rounded-[var(--radius-md)] border border-danger/40 bg-danger-soft px-4 py-3 text-sm text-foreground"
           }
         >
           {message}
@@ -82,7 +83,7 @@ export function ContactForm() {
           <div className="space-y-2.5">
             <label
               htmlFor="name"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+              className="label text-foreground"
             >
               Name
             </label>
@@ -92,14 +93,14 @@ export function ContactForm() {
               autoComplete="name"
               required
               placeholder="Your full name"
-              className="h-12 rounded-lg border-surface-border/80"
+             
             />
           </div>
 
           <div className="space-y-2.5">
             <label
               htmlFor="email"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+              className="label text-foreground"
             >
               Email
             </label>
@@ -110,7 +111,7 @@ export function ContactForm() {
               autoComplete="email"
               required
               placeholder="you@company.com"
-              className="h-12 rounded-lg border-surface-border/80"
+             
             />
           </div>
         </div>
@@ -118,7 +119,7 @@ export function ContactForm() {
         <div className="space-y-2.5">
           <label
             htmlFor="businessName"
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+            className="label text-foreground"
           >
             Business Name
           </label>
@@ -127,14 +128,14 @@ export function ContactForm() {
             name="businessName"
             autoComplete="organization"
             placeholder="Your company or brand"
-            className="h-12 rounded-lg border-surface-border/80"
+           
           />
         </div>
 
         <div className="space-y-2.5">
           <label
             htmlFor="serviceInterestedIn"
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+            className="label text-foreground"
           >
             Service Interested In
           </label>
@@ -144,7 +145,7 @@ export function ContactForm() {
             defaultValue=""
             required
             placeholder="Select the service that best fits"
-            className="rounded-lg [&_button]:h-12 [&_button]:rounded-lg [&_button]:border-surface-border/80"
+            
             options={contactServiceOptions.map((service) => ({
               value: service,
               label: service,
@@ -156,7 +157,7 @@ export function ContactForm() {
           <div className="flex items-end justify-between gap-3">
             <label
               htmlFor="projectDetails"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-readable"
+              className="label text-foreground"
             >
               Project Details
             </label>
@@ -171,15 +172,15 @@ export function ContactForm() {
             required
             minLength={10}
             placeholder="Share what you want to launch or improve, what is slowing your team down today, and what a successful outcome should look like."
-            className="min-h-40 rounded-lg border-surface-border/80"
+            className="min-h-40"
           />
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 border-t border-surface-border/70 pt-4 md:pt-5">
+        <div className="flex flex-wrap items-center gap-4 border-t border-surface-border pt-6">
           <Button
             type="submit"
             size="lg"
-            className="rounded-lg px-8"
+            
             disabled={status === "submitting"}
           >
             {status === "submitting" ? "Sending…" : "Start the Conversation"}

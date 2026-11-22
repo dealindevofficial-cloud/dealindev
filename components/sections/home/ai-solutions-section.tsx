@@ -1,68 +1,53 @@
+import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion";
-import { Card, Heading } from "@/components/ui";
+import { ArrowIcon, buttonVariants, Heading } from "@/components/ui";
+import { AiFlow, GlowBackdrop } from "@/components/visuals";
 import { aiSolutionsHighlight } from "@/data/home";
+import { routes } from "@/lib/routes";
 
 export function AiSolutionsSection() {
+  const { capabilities, valuePoints, eyebrow, title, highlight, description } = aiSolutionsHighlight;
+
   return (
-    <Section>
-      <Reveal>
-        <Card className="relative overflow-hidden border-primary/30 bg-slate-950/80 p-8 shadow-lg md:p-10">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_90%_at_0%_0%,rgb(56_189_248_/_0.18)_0%,transparent_55%),radial-gradient(70%_80%_at_100%_0%,rgb(168_85_247_/_0.18)_0%,transparent_58%),linear-gradient(135deg,rgb(15_23_42_/_0.65)_0%,rgb(2_6_23_/_0.8)_100%)]"
-          />
-          <div aria-hidden className="ai-float-slow absolute -right-12 top-12 h-28 w-28 rounded-full bg-primary/15 blur-2xl" />
-          <div
-            aria-hidden
-            className="ai-float-fast absolute bottom-8 right-1/3 h-20 w-20 rounded-full bg-secondary/15 blur-2xl"
-          />
+    <Section tone="dark" aria-labelledby="ai-title" background={<GlowBackdrop />}>
+      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <Reveal>
+          <Heading id="ai-title" eyebrow={eyebrow} title={title} highlight={highlight} description={description} />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <ul className="space-y-3.5">
+            {valuePoints.map((point) => (
+              <li key={point} className="flex items-start gap-3 text-foreground/90">
+                <svg aria-hidden viewBox="0 0 16 16" className="mt-1 h-4 w-4 shrink-0 text-accent">
+                  <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
 
-          <div className="relative grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-            <div className="space-y-6">
-              <Heading
-                eyebrow={aiSolutionsHighlight.eyebrow}
-                level={2}
-                title={aiSolutionsHighlight.title}
-                description={aiSolutionsHighlight.description}
-              />
+      <Reveal delay={0.1} className="mt-16">
+        <AiFlow />
+      </Reveal>
 
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {aiSolutionsHighlight.capabilities.map((capability, index) => (
-                  <li
-                    key={capability}
-                    className="rounded-md border border-sky-200/15 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-slate-900"
-                    style={{ animationDelay: `${index * 120}ms` }}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-primary" />
-                      {capability}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="space-y-2 text-sm text-foreground-muted">
-                {aiSolutionsHighlight.valuePoints.map((point) => (
-                  <li key={point} className="flex items-start gap-2">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 rounded-full bg-primary/90" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-3">
-              {aiSolutionsHighlight.useCases.map((useCase, index) => (
-                <Reveal key={useCase} delay={index * 0.06} y={10}>
-                  <div className="rounded-lg border border-slate-300/15 bg-slate-950/60 p-4 text-sm leading-relaxed text-slate-200 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-primary/35 hover:bg-slate-900/70">
-                    {useCase}
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </Card>
+      <Reveal delay={0.15} className="mt-14 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <ul aria-label="AI capabilities" className="flex flex-wrap gap-2.5">
+          {capabilities.map((cap) => (
+            <li
+              key={cap}
+              className="rounded-full border border-surface-border bg-surface px-4 py-2 text-sm font-medium text-foreground/90 transition-colors hover:border-accent hover:text-accent"
+            >
+              {cap}
+            </li>
+          ))}
+        </ul>
+        <Link href={routes.aiSolutions} className={buttonVariants({ className: "shrink-0" })}>
+          Explore AI Solutions
+          <ArrowIcon />
+        </Link>
       </Reveal>
     </Section>
   );

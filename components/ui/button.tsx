@@ -1,47 +1,52 @@
-import { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
-type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+
+const base =
+  "focus-ring group inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-all duration-300 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none";
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary:
+    "btn-shine bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_var(--glow)] hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_16px_40px_-12px_var(--glow)]",
+  secondary:
+    "border border-foreground/20 bg-transparent text-foreground hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft",
+  ghost: "text-accent-text hover:bg-accent-soft",
+};
+
+const sizeClasses: Record<ButtonSize, string> = {
+  sm: "h-10 px-5 text-sm",
+  md: "h-12 px-6 text-[0.95rem]",
+  lg: "h-14 px-8 text-base",
+};
+
+export function buttonVariants({
+  variant = "primary",
+  size = "md",
+  className,
+}: { variant?: ButtonVariant; size?: ButtonSize; className?: string } = {}) {
+  return cn(base, variantClasses[variant], sizeClasses[size], className);
+}
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
 }
 
-const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-primary text-slate-950 hover:bg-primary-strong shadow-md hover:shadow-lg",
-  secondary:
-    "bg-surface-muted text-foreground border border-surface-border hover:bg-slate-700/70",
-  ghost:
-    "bg-transparent text-foreground border border-surface-border/60 hover:border-primary/50 hover:bg-surface/70",
-};
+export function Button({ className, variant, size, type = "button", ...props }: ButtonProps) {
+  return <button type={type} className={buttonVariants({ variant, size, className })} {...props} />;
+}
 
-const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-sm",
-  lg: "h-12 px-7 text-base",
-};
-
-export function Button({
-  className,
-  variant = "primary",
-  size = "md",
-  type = "button",
-  ...props
-}: ButtonProps) {
+export function ArrowIcon({ className }: { className?: string }) {
   return (
-    <button
-      type={type}
-      suppressHydrationWarning
-      className={cn(
-        "focus-ring inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 hover:-translate-y-px active:translate-y-0 active:scale-[0.985] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none motion-reduce:active:scale-100",
-        variantClasses[variant],
-        sizeClasses[size],
-        className,
-      )}
-      {...props}
-    />
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      fill="none"
+      className={cn("h-4 w-4 transition-transform duration-300 group-hover:translate-x-1", className)}
+    >
+      <path d="M4 10h11m0 0-4.5-4.5M15 10l-4.5 4.5" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }

@@ -1,159 +1,137 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout";
 import { Reveal } from "@/components/motion";
-import { Card, Heading } from "@/components/ui";
-import {
-  serviceBenefits,
-  servicePillars,
-  serviceProcessSteps,
-  servicesPageCopy,
-} from "@/data/services";
-import { staggerDelay } from "@/lib/motion";
+import { CtaBand, PageHero, ProcessTimeline } from "@/components/sections/shared";
+import { JsonLd } from "@/components/seo/json-ld";
+import { ArrowIcon, buttonVariants, Card, Heading } from "@/components/ui";
+import { ServiceIcon } from "@/components/visuals";
+import { serviceBenefits, servicePillars, serviceProcessSteps, servicesPageCopy } from "@/data/services";
+import { siteBrand } from "@/data/site";
 import { routes } from "@/lib/routes";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services | Deal in Dev",
+export const metadata = pageMetadata({
+  title: "Web Development, App & AI Automation Services",
   description:
-    "Explore Deal in Dev services for website development, app development, and AI automation focused on measurable business outcomes.",
-};
+    "Custom website development, web and mobile app development, and AI automation services for US businesses. Scoped around measurable outcomes and built to scale.",
+  path: routes.services,
+});
+
+const servicesJsonLd = servicePillars.map((p) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: p.title,
+  description: p.summary,
+  serviceType: p.title,
+  url: `${siteBrand.url}${routes.services}#${p.slug}`,
+  provider: { "@id": `${siteBrand.url}/#organization` },
+  areaServed: { "@type": "Country", name: siteBrand.areaServed },
+}));
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-foreground-muted">
+          <svg aria-hidden viewBox="0 0 16 16" className="mt-1 h-4 w-4 shrink-0 text-accent">
+            <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function ServicesPage() {
+  const { hero, benefits, process, closingCta } = servicesPageCopy;
+
   return (
     <>
-      <Section className="pb-8">
-        <Reveal>
-          <Heading
-            level={1}
-            eyebrow={servicesPageCopy.hero.eyebrow}
-            title={servicesPageCopy.hero.title}
-            description={servicesPageCopy.hero.description}
-            className="max-w-4xl"
-          />
-        </Reveal>
-      </Section>
-
-      <Section className="pt-0">
-        <h2 className="sr-only">Core service areas</h2>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {servicePillars.map((pillar, index) => (
-            <Reveal key={pillar.title} delay={staggerDelay(index)} className="min-w-0">
-              <Card className="h-full space-y-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-foreground">{pillar.title}</h3>
-                <p className="text-sm text-foreground-muted">{pillar.summary}</p>
-              </div>
-
-              <div className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-readable">
-                  Business Outcomes
-                </p>
-                <ul className="space-y-2 text-sm leading-normal text-foreground-muted">
-                  {pillar.outcomes.map((outcome) => (
-                    <li
-                      key={outcome}
-                      className="relative pl-3.5 before:absolute before:left-0 before:top-[0.5lh] before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full before:bg-primary before:content-['']"
-                    >
-                      {outcome}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="space-y-3 border-t border-surface-border/50 pt-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-readable">
-                  Example Deliverables
-                </p>
-                <ul className="space-y-2 text-sm leading-normal text-foreground-muted">
-                  {pillar.deliverables.map((deliverable) => (
-                    <li
-                      key={deliverable}
-                      className="relative pl-3.5 before:absolute before:left-0 before:top-[0.5lh] before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full before:bg-secondary before:content-['']"
-                    >
-                      {deliverable}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="pt-0">
-        <Reveal>
-          <Heading
-            eyebrow={servicesPageCopy.benefits.eyebrow}
-            level={2}
-            title={servicesPageCopy.benefits.title}
-            description={servicesPageCopy.benefits.description}
-          />
-        </Reveal>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {serviceBenefits.map((benefit, index) => (
-            <Reveal key={benefit.title} delay={staggerDelay(index)} className="min-w-0">
-              <Card className="space-y-3">
-              <h3 className="text-lg font-semibold text-foreground">{benefit.title}</h3>
-              <p className="text-sm text-foreground-muted">{benefit.description}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="pt-0">
-        <Reveal>
-          <Heading
-            eyebrow={servicesPageCopy.process.eyebrow}
-            level={2}
-            title={servicesPageCopy.process.title}
-            description={servicesPageCopy.process.description}
-          />
-        </Reveal>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {serviceProcessSteps.map((step, index) => (
-            <Reveal key={step.title} delay={staggerDelay(index)} className="min-w-0">
-              <Card className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-readable">
-                {step.step}
-              </p>
-              <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-              <p className="text-sm text-foreground-muted">{step.detail}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="pt-0">
-        <Reveal>
-          <Card className="space-y-8 border-primary/25 p-8 md:p-12">
-          <Heading
-            eyebrow={servicesPageCopy.closingCta.eyebrow}
-            level={2}
-            title={servicesPageCopy.closingCta.title}
-            description={servicesPageCopy.closingCta.description}
-            className="max-w-3xl"
-          />
-
-          <div className="flex flex-wrap gap-3">
+      <JsonLd data={servicesJsonLd} />
+      <PageHero {...hero} breadcrumbs={[{ name: "Services", path: routes.services }]}>
+        <nav aria-label="Service areas" className="flex flex-wrap gap-3">
+          {servicePillars.map((p) => (
             <Link
-              href={routes.contact}
-              className="focus-ring inline-flex h-12 items-center justify-center rounded-md bg-primary px-7 text-base font-medium text-slate-950 shadow-md transition-all duration-200 hover:-translate-y-px hover:bg-primary-strong hover:shadow-lg active:translate-y-0"
+              key={p.slug}
+              href={`#${p.slug}`}
+              className="focus-ring rounded-full border border-surface-border bg-surface px-4 py-2 text-sm font-medium text-foreground/90 transition-colors hover:border-accent hover:text-accent"
             >
-              {servicesPageCopy.closingCta.primaryCta}
+              {p.title}
             </Link>
-            <Link
-              href={routes.contact}
-              className="focus-ring inline-flex h-12 items-center justify-center rounded-md border border-surface-border bg-surface-muted px-7 text-base font-medium text-foreground transition-all duration-200 hover:-translate-y-px hover:bg-slate-700/70 active:translate-y-0"
-            >
-              {servicesPageCopy.closingCta.secondaryCta}
-            </Link>
+          ))}
+        </nav>
+      </PageHero>
+
+      {servicePillars.map((pillar, index) => (
+        <Section key={pillar.slug} id={pillar.slug} tone={index % 2 === 0 ? "light" : "tint"} aria-labelledby={`${pillar.slug}-title`}>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <Reveal className="space-y-6">
+              <ServiceIcon name={pillar.icon} />
+              <h2 id={`${pillar.slug}-title`} className="text-3xl text-foreground sm:text-4xl">
+                {pillar.title}
+              </h2>
+              <p className="max-w-[36rem] text-lg leading-relaxed text-foreground-muted">{pillar.summary}</p>
+              <Link
+                href={pillar.icon === "ai" ? routes.aiSolutions : routes.contact}
+                className={buttonVariants({ variant: "secondary" })}
+              >
+                {pillar.icon === "ai" ? "Explore AI solutions" : `Discuss your ${pillar.title.toLowerCase()} project`}
+                <ArrowIcon />
+              </Link>
+            </Reveal>
+            <Reveal delay={0.1} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+              <Card>
+                <h3 className="label text-accent-text">Business outcomes</h3>
+                <div className="mt-5">
+                  <Bullets items={pillar.outcomes} />
+                </div>
+              </Card>
+              <Card>
+                <h3 className="label text-accent-text">What you get</h3>
+                <div className="mt-5">
+                  <Bullets items={pillar.deliverables} />
+                </div>
+              </Card>
+            </Reveal>
           </div>
-          </Card>
+        </Section>
+      ))}
+
+      <Section tone="dark" aria-labelledby="benefits-title">
+        <Reveal>
+          <Heading id="benefits-title" {...benefits} />
         </Reveal>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {serviceBenefits.map((benefit, index) => (
+            <Reveal key={benefit.title} delay={index * 0.08} className="h-full">
+              <Card interactive className="h-full">
+                <span className="text-gradient-brand text-4xl font-bold">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-5 text-xl text-foreground">{benefit.title}</h3>
+                <p className="mt-2.5 text-[0.95rem] leading-relaxed text-foreground-muted">{benefit.description}</p>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
       </Section>
+
+      <Section id="process" tone="light" aria-labelledby="process-title">
+        <Reveal>
+          <Heading id="process-title" {...process} />
+        </Reveal>
+        <div className="mt-16">
+          <ProcessTimeline steps={serviceProcessSteps.map((s) => ({ title: s.title, detail: s.detail }))} />
+        </div>
+      </Section>
+
+      <CtaBand
+        eyebrow={closingCta.eyebrow}
+        title={closingCta.title}
+        description={closingCta.description}
+        primaryLabel={closingCta.primaryCta}
+        secondaryLabel={closingCta.secondaryCta}
+        secondaryHref={routes.aiSolutions}
+      />
     </>
   );
 }

@@ -1,39 +1,29 @@
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion";
-import { Card, Heading } from "@/components/ui";
+import { Heading } from "@/components/ui";
+import { AscendMotif } from "@/components/visuals";
 import { whyDealInDevSection } from "@/data/home";
 
 export function WhyDealInDevSection() {
-  return (
-    <Section className="relative">
-      <Reveal>
-        <Card className="relative overflow-hidden border-surface-border/80 p-0">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,rgb(56_189_248_/_0.12),transparent_55%),radial-gradient(90%_90%_at_100%_10%,rgb(168_85_247_/_0.1),transparent_55%)]" />
-          <div className="relative grid gap-8 p-8 md:grid-cols-[1.05fr_0.95fr] md:gap-10 md:p-10 lg:p-12">
-            <div className="space-y-6">
-              <Heading
-                eyebrow={whyDealInDevSection.eyebrow}
-                level={2}
-                title={whyDealInDevSection.title}
-                description={whyDealInDevSection.description}
-                className="space-y-4"
-              />
-            </div>
+  const { differentiators, ...heading } = whyDealInDevSection;
 
-            <div className="grid gap-3">
-              {whyDealInDevSection.differentiators.map((item, index) => (
-                <Reveal key={item} delay={0.05 * (index + 1)}>
-                  <div className="group rounded-lg border border-surface-border/70 bg-slate-950/45 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/45 hover:bg-slate-950/60">
-                    <p className="text-sm leading-relaxed text-foreground-muted transition-colors duration-300 group-hover:text-foreground/90">
-                      {item}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </Card>
-      </Reveal>
+  return (
+    <Section tone="tint" aria-labelledby="why-title" background={<AscendMotif className="-right-16 -top-16 h-[36rem]" />}>
+      <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <Reveal className="lg:sticky lg:top-28 lg:self-start">
+          <Heading id="why-title" {...heading} />
+        </Reveal>
+
+        <ol className="grid gap-x-10 gap-y-12 sm:grid-cols-2">
+          {differentiators.map((item, index) => (
+            <Reveal as="li" key={item.title} delay={index * 0.08} className="border-t-2 border-accent/40 pt-6">
+              <span className="text-gradient-brand text-5xl font-bold tracking-tight">{String(index + 1).padStart(2, "0")}</span>
+              <h3 className="mt-4 text-xl text-foreground">{item.title}</h3>
+              <p className="mt-2.5 text-[0.95rem] leading-relaxed text-foreground-muted">{item.description}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
     </Section>
   );
 }

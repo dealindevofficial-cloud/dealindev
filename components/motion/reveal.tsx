@@ -1,30 +1,23 @@
-"use client";
-
-import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
+import type { CSSProperties, ElementType, HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
-import { motionTransition, motionViewport } from "@/lib/motion";
 
-type RevealProps = Omit<
-  HTMLMotionProps<"div">,
-  "initial" | "whileInView" | "viewport" | "transition"
-> & {
+type RevealProps = HTMLAttributes<HTMLElement> & {
+  as?: ElementType;
   delay?: number;
   y?: number;
 };
 
-export function Reveal({ children, className, delay = 0, y = 14, ...rest }: RevealProps) {
-  const reduceMotion = useReducedMotion();
-
+/**
+ * Server-rendered reveal wrapper. Content is always in the HTML and visible
+ * without JavaScript; `RevealObserver` adds `data-inview` to animate it in.
+ */
+export function Reveal({ as: Tag = "div", delay = 0, y = 16, className, style, ...rest }: RevealProps) {
   return (
-    <motion.div
+    <Tag
+      data-reveal=""
       className={cn(className)}
-      initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y }}
-      whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-      viewport={motionViewport}
-      transition={{ ...motionTransition, delay }}
+      style={{ "--reveal-delay": `${delay}s`, "--reveal-y": `${y}px`, ...style } as CSSProperties}
       {...rest}
-    >
-      {children}
-    </motion.div>
+    />
   );
 }

@@ -1,49 +1,51 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { FuturePageIntro } from "@/components/sections/shared";
+import { CtaBand, PageHero } from "@/components/sections/shared";
 import { caseStudyPlaceholders } from "@/data/case-studies";
+import { routes } from "@/lib/routes";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return caseStudyPlaceholders.map((item) => ({ slug: item.slug }));
-}
-
-function titleCaseFromSlug(slug: string) {
-  return slug
-    .split("-")
-    .filter(Boolean)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const entry = caseStudyPlaceholders.find((c) => c.slug === slug);
-  const title = entry?.title ?? titleCaseFromSlug(slug);
-  return {
-    title: `${title} | Case Study | Deal in Dev`,
-    description: `How Deal in Dev delivered outcomes for ${title}.`,
-  };
+  if (!entry) return {};
+  return pageMetadata({
+    title: `${entry.title} Case Study`,
+    description: `How Deal in Dev delivered measurable results for ${entry.title}: the challenge, our technical approach and the outcomes.`,
+    path: `${routes.caseStudies}/${entry.slug}`,
+  });
 }
 
 export default async function CaseStudyDetailPage({ params }: Props) {
   const { slug } = await params;
   const entry = caseStudyPlaceholders.find((c) => c.slug === slug);
-
-  if (!entry && caseStudyPlaceholders.length > 0) {
-    notFound();
-  }
-
-  const displayTitle = entry?.title ?? titleCaseFromSlug(slug);
+  if (!entry) notFound();
 
   return (
-    <FuturePageIntro
-      eyebrow="Case Study"
-      title={displayTitle}
-      description="Template route for long-form case studies. Replace this intro with rich content, metrics, and stack notes when the story is ready."
-    />
+    <>
+      <PageHero
+        eyebrow="Case Study"
+        title={entry.title}
+        description={`How Deal in Dev delivered measurable results for ${entry.title}.`}
+        breadcrumbs={[
+          { name: "Case Studies", path: routes.caseStudies },
+          { name: entry.title, path: `${routes.caseStudies}/${entry.slug}` },
+        ]}
+      />
+      <CtaBand
+        title="Want similar results?"
+        description="Book a free strategy call and we will map the fastest path to your goals."
+      />
+    </>
   );
 }

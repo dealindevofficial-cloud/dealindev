@@ -1,45 +1,44 @@
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/motion";
-import { Card, Heading } from "@/components/ui";
+import { Heading } from "@/components/ui";
 import { testimonials, testimonialsSection } from "@/data/testimonials";
-import { staggerDelay } from "@/lib/motion";
 
 export function TestimonialsSection() {
   return (
-    <Section>
+    <Section tone="light" aria-labelledby="testimonials-title">
       <Reveal>
-        <Heading
-          eyebrow={testimonialsSection.eyebrow}
-          level={2}
-          title={testimonialsSection.title}
-          description={testimonialsSection.description}
-        />
+        <Heading id="testimonials-title" align="center" {...testimonialsSection} />
       </Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((item, index) => (
+
+      <div className="mt-16 grid gap-6 md:grid-cols-3">
+        {testimonials.map((t, index) => (
           <Reveal
-            key={`${item.name}-${item.businessType}`}
-            delay={staggerDelay(index)}
-            className="min-w-0"
+            as="figure"
+            key={t.name}
+            delay={index * 0.08}
+            className="relative flex flex-col rounded-[var(--radius-lg)] border border-surface-border bg-surface p-8 shadow-sm"
           >
-            <Card className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-slate-800/60 to-slate-900/70 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg motion-reduce:hover:translate-y-0">
-              <div
+            <svg aria-hidden viewBox="0 0 32 24" className="h-7 w-9 text-accent">
+              <path
+                fill="currentColor"
+                d="M0 24V14C0 6.3 4.2 1.6 12.6 0l1.3 3.3C9.4 4.6 7.2 7.2 6.9 11H13v13H0Zm19 0V14c0-7.7 4.2-12.4 12.6-14l1.3 3.3c-4.5 1.3-6.7 3.9-7 7.7H32v13H19Z"
+              />
+            </svg>
+            <blockquote className="mt-6 flex-1 text-[1.05rem] leading-relaxed text-foreground">“{t.quote}”</blockquote>
+            <figcaption className="mt-8 flex items-center gap-3.5 border-t border-surface-border pt-6">
+              <span
                 aria-hidden
-                className="pointer-events-none absolute right-5 top-4 text-5xl leading-none text-primary/20 transition-colors duration-300 group-hover:text-primary/30"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#059669,#34d399)] text-sm font-bold text-[#04120d]"
               >
-                &ldquo;
-              </div>
-              <p className="relative pr-8 text-[15px] leading-relaxed text-slate-100">
-                {item.quote}
-              </p>
-              <div className="relative mt-6 border-t border-white/10 pt-4">
-                <p className="text-sm font-semibold text-foreground">{item.name}</p>
-                <p className="mt-1 text-xs text-foreground-muted">{item.role}</p>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.16em] text-primary-readable/90">
-                  {item.businessType}
-                </p>
-              </div>
-            </Card>
+                {t.name.charAt(0)}
+              </span>
+              <span>
+                <span className="block font-semibold text-foreground">{t.name}</span>
+                <span className="block text-sm text-foreground-muted">
+                  {t.role}, {t.businessType}
+                </span>
+              </span>
+            </figcaption>
           </Reveal>
         ))}
       </div>

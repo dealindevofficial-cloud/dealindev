@@ -1,54 +1,51 @@
 export const positioningNarrative = {
   eyebrow: "About Deal in Dev",
-  title: "A partner for software and AI that drives business outcomes.",
+  title: "Your partner for custom software and AI that drives results.",
+  highlight: "drives results",
   description:
-    "We turn growth and ops goals into practical systems—websites, apps, and AI—with strategic clarity and hands-on delivery.",
+    "We help US businesses turn growth and operations goals into practical digital systems: websites, apps and AI automation, delivered with strategic clarity and hands-on execution.",
 };
 
 export const missionAndApproach = {
-  title: "Our mission and approach",
+  eyebrow: "Mission & Approach",
+  title: "Technology that makes teams faster and operations stronger.",
   mission:
-    "Build systems that make teams faster, decisions clearer, and operations more resilient.",
+    "Our mission is to build systems that make teams faster, decisions clearer and operations more resilient, so business owners can focus on growth.",
   approach: [
-    "Start with business context before touching implementation details.",
-    "Prioritize the highest-leverage outcomes and deliver in focused phases.",
-    "Design for clarity and long-term maintainability, not short-term hacks.",
+    "Start with business context before implementation details",
+    "Prioritize the highest-impact outcomes and deliver in focused phases",
+    "Design for clarity and long-term maintainability, never short-term hacks",
   ],
 };
 
 export const valuePrinciplesSection = {
-  eyebrow: "Value Principles",
-  title: "How we work with clarity-focused teams.",
-  description:
-    "Principles that keep every engagement aligned with business priorities.",
+  eyebrow: "Our Principles",
+  title: "How we work with ambitious teams.",
+  description: "Four principles keep every engagement aligned with your business priorities.",
 } as const;
 
 export const valuePrinciples = [
   {
     title: "Outcome-led execution",
-    description:
-      "Scope ties to objectives—from conversion to workflow efficiency.",
+    description: "Scope is tied to clear objectives, from conversion rate to hours saved per week.",
   },
   {
     title: "Clear communication",
-    description:
-      "Direct updates, transparent trade-offs, and shared priorities at every stage.",
+    description: "Direct updates, transparent trade-offs and shared priorities at every stage.",
   },
   {
     title: "Systems thinking",
-    description:
-      "Connected systems for growth—not isolated pages or one-off features.",
+    description: "Connected platforms for growth, never isolated pages or one-off features.",
   },
   {
     title: "Quality without noise",
-    description:
-      "Polish and practical architecture without unnecessary complexity.",
+    description: "Polished design and practical architecture without unnecessary complexity.",
   },
 ];
 
 export const trustCta = {
-  eyebrow: "Ready to Work Together",
-  title: "Bring your goals; we shape the technical path with you.",
+  eyebrow: "Work With Us",
+  title: "Bring your goals. We will shape the technical path with you.",
   description:
-    "Web, product, or AI ops—we build with clarity, accountability, and long-term trust.",
+    "Web, product or AI operations: we build with clarity, accountability and a long-term partnership mindset.",
 };
