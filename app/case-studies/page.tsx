@@ -61,7 +61,7 @@ export default function CaseStudiesIndexPage() {
 
       <CtaBand
         title="Let's write your success story next."
-        description="Book a free strategy call and get a clear plan for your website, app or AI automation project."
+        description="Book a free strategy call and get a clear plan for your SaaS, CRM, app or AI automation project."
       />
     </>
   );

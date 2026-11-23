@@ -108,7 +108,7 @@ export function HeroDashboard() {
           </div>
 
           {/* Activity feed */}
-          <div className="px-5 pb-9 pt-4">
+          <div className="px-5 py-4">
             <p className="text-[0.68rem] font-medium uppercase tracking-[0.12em] text-foreground-muted">AI agent activity</p>
             <ul className="mt-3 space-y-2.5">
               {activity.map((item, i) => (
@@ -126,17 +126,12 @@ export function HeroDashboard() {
                 </li>
               ))}
             </ul>
+            <p className="mt-4 text-center text-xs text-foreground-muted">
+              Leads qualified in <span className="font-semibold text-accent-text">8 seconds</span>
+            </p>
           </div>
         </div>
       </TiltCard>
-
-      <div
-        aria-hidden
-        className="animate-float absolute -bottom-6 right-6 hidden rounded-xl border border-white/10 bg-surface/95 px-3.5 py-2.5 shadow-lg backdrop-blur sm:block"
-      >
-        <p className="text-[0.65rem] text-foreground-muted">Qualified in</p>
-        <p className="text-sm font-bold text-accent-text">8 seconds</p>
-      </div>
     </div>
   );
 }

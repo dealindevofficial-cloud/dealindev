@@ -39,17 +39,22 @@ export function CtaBand({
     >
       <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
         <Reveal className="space-y-6">
-          {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-          <h2 id="cta-title" className="max-w-[20ch] text-4xl text-foreground sm:text-5xl">
+          {eyebrow ? <Eyebrow className="font-bold text-[#04120d]!">{eyebrow}</Eyebrow> : null}
+          <h2 id="cta-title" className="max-w-[20ch] text-4xl font-extrabold text-[#04120d] sm:text-5xl">
             {title}
           </h2>
-          <p className="max-w-[38rem] text-lg leading-relaxed text-foreground-muted">{description}</p>
+          <p className="max-w-[38rem] text-lg font-medium leading-relaxed text-[#04120d]/85">{description}</p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link href={routes.contact} className={buttonVariants({ size: "lg" })}>
               {primaryLabel}
               <ArrowIcon />
             </Link>
-            <Link href={secondaryHref} className={buttonVariants({ variant: "secondary", size: "lg" })}>
+            <Link href={secondaryHref} className={buttonVariants({
+                variant: "secondary",
+                size: "lg",
+                className: "border-[#04120d]/40! font-semibold text-[#04120d]! hover:border-[#04120d]! hover:bg-white/20!",
+              })}
+            >
               {secondaryLabel}
             </Link>
           </div>
@@ -57,9 +62,9 @@ export function CtaBand({
 
         {valuePoints ? (
           <Reveal delay={0.1}>
-            <ul className="space-y-4 rounded-[var(--radius-lg)] border border-surface-border bg-surface p-7 backdrop-blur">
+            <ul className="space-y-4 rounded-[var(--radius-lg)] border border-white/40 bg-white/30 p-7 backdrop-blur">
               {valuePoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 font-medium text-foreground">
+                <li key={point} className="flex items-start gap-3 font-semibold text-[#04120d]">
                   <span aria-hidden className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#04120d] text-[#6ee7b7]">
                     <svg viewBox="0 0 16 16" className="h-3.5 w-3.5">
                       <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

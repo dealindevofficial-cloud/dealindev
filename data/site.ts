@@ -5,12 +5,13 @@ export const siteBrand = {
   url: "https://dealindev.com",
   email: "dealindevofficial@gmail.com",
   /** Short positioning blurb (footer, meta fallbacks) */
-  tagline: "Websites, apps and AI that help US businesses move faster and work smarter.",
-  defaultTitle: "Deal in Dev | Custom Web, App & AI Automation Development",
+  tagline: "SaaS platforms, CRMs, apps and AI that help US businesses move faster and work smarter.",
+  defaultTitle: "Deal in Dev | SaaS, CRM, App & AI Automation Development",
   defaultDescription:
-    "Deal in Dev is a US-focused custom web development company and AI automation agency. We build websites, apps, AI chatbots and voice agents that drive measurable growth.",
+    "Deal in Dev is a US-focused SaaS and CRM development company and AI automation agency. We build SaaS platforms, custom CRMs, apps, AI chatbots and voice agents that drive measurable growth.",
   keywords: [
-    "custom web development company",
+    "SaaS development company",
+    "custom CRM development",
     "AI automation agency",
     "AI chatbot development",
     "AI voice agent development",

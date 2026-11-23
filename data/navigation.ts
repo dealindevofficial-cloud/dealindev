@@ -13,7 +13,7 @@ export type FooterLinkGroup = {
 export const primaryNavigation: NavItem[] = [
   { label: "Services", href: routes.services },
   { label: "AI Solutions", href: routes.aiSolutions },
-  { label: "Work", href: routes.work },
+  // { label: "Work", href: routes.work },
   { label: "About", href: routes.about },
   { label: "Contact", href: routes.contact },
 ];
@@ -22,7 +22,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Services",
     links: [
-      { label: "Website Development", href: `${routes.services}#website-development` },
+      { label: "SaaS & CRM Development", href: `${routes.services}#website-development` },
       { label: "App Development", href: `${routes.services}#app-development` },
       { label: "AI Agents & Automation", href: routes.aiSolutions },
     ],

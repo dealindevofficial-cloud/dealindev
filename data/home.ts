@@ -1,9 +1,9 @@
 export const heroContent = {
-  eyebrow: "Custom Software & AI Automation",
-  title: "Websites, apps and AI built to grow your business.",
+  eyebrow: "Software development and AI automation",
+  title: "SaaS, CRMs and AI built to grow your business.",
   highlight: "grow",
   description:
-    "Deal in Dev is a custom web development company and AI automation agency for US businesses. We design, build and launch digital systems that win more leads, save hours every week and scale with you.",
+    "Deal in Dev is a SaaS and CRM development company and AI automation agency for US businesses. We design, build and launch digital systems that win more leads, save hours every week and scale with you.",
   primaryCta: { label: "Book a Free Strategy Call" },
   secondaryCta: { label: "Explore Our Services" },
 } as const;
@@ -31,7 +31,7 @@ export const trustStrip = {
 
 export const heroCapabilityStrip = {
   ariaLabel: "Core capabilities",
-  points: ["Web Development", "Mobile & Web Apps", "AI Agents", "Business Automation"],
+  points: ["SaaS & CRM Development", "Mobile & Web Apps", "AI Agents", "Business Automation"],
 } as const;
 
 export const servicesOverviewSection = {
@@ -39,7 +39,7 @@ export const servicesOverviewSection = {
   title: "Digital systems that move revenue and operations forward.",
   highlight: "revenue and operations",
   description:
-    "From high-converting websites to custom apps and AI agents, every engagement is scoped around a measurable business outcome.",
+    "From SaaS platforms and custom CRMs to apps and AI agents, every engagement is scoped around a measurable business outcome.",
 } as const;
 
 export const whyDealInDevSection = {

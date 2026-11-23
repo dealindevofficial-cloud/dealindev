@@ -7,12 +7,15 @@ import { portfolioPreviews } from "@/data/portfolio";
 import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({
-  title: "Our Work: Web, App & AI Automation Projects",
-  description:
-    "Explore Deal in Dev projects: custom web apps, booking platforms and AI automation systems built to improve operations and growth for US businesses.",
-  path: routes.work,
-});
+export const metadata = {
+  ...pageMetadata({
+    title: "Our Work: SaaS, CRM, App & AI Automation Projects",
+    description:
+      "Explore Deal in Dev projects: SaaS platforms, CRMs, custom apps and AI automation systems built to improve operations and growth for US businesses.",
+    path: routes.work,
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function WorkPage() {
   return (
@@ -21,7 +24,7 @@ export default function WorkPage() {
         eyebrow="Our Work"
         title="Systems that deliver measurable business results."
         highlight="measurable business results"
-        description="A selection of websites, custom apps and AI automations we have designed and built. Each project started with a business goal and ended with a measurable outcome."
+        description="A selection of SaaS platforms, CRMs, custom apps and AI automations we have designed and built. Each project started with a business goal and ended with a measurable outcome."
         breadcrumbs={[{ name: "Work", path: routes.work }]}
       />
 

@@ -11,9 +11,9 @@ import { routes } from "@/lib/routes";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Web Development, App & AI Automation Services",
+  title: "SaaS & CRM Development, App & AI Automation Services",
   description:
-    "Custom website development, web and mobile app development, and AI automation services for US businesses. Scoped around measurable outcomes and built to scale.",
+    "End-to-end SaaS and CRM development, web and mobile app development, and AI automation services for US businesses. Scoped around measurable outcomes and built to scale.",
   path: routes.services,
 });
 

@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Contact Us: Book a Free Strategy Call",
   description:
-    "Contact Deal in Dev to discuss website development, custom app development or AI automation for your business. Book a free strategy call and get a reply within one business day.",
+    "Contact Deal in Dev to discuss SaaS and CRM development, custom app development or AI automation for your business. Book a free strategy call and get a reply within one business day.",
   path: routes.contact,
 });
 

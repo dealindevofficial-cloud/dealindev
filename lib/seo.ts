@@ -9,7 +9,7 @@ type PageMetaInput = {
 
 const ogImage = {
   url: "/opengraph-image.png",
-  alt: "Deal in Dev: websites, apps and AI that help teams move faster.",
+  alt: "Deal in Dev: SaaS, CRMs, apps and AI that help teams move faster.",
 };
 
 /** Per-page metadata with canonical URL and matching Open Graph / Twitter fields. */

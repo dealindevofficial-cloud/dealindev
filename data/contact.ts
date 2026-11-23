@@ -9,11 +9,11 @@ export const contactIntro = {
   title: "Let's talk about what your business needs next.",
   highlight: "needs next",
   description:
-    "Planning a new website, custom app or AI automation? Book a free strategy call or send us a message. We reply within one business day.",
+    "Planning a SaaS product, custom CRM, app or AI automation? Book a free strategy call or send us a message. We reply within one business day.",
 };
 
 export const contactServiceOptions = [
-  "Website Development",
+  "SaaS & CRM Development",
   "App Development",
   "AI Agent",
   "AI Automation",

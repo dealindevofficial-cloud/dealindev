@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About Us: Custom Software & AI Development Partner",
   description:
-    "Meet Deal in Dev, a US-focused partner for custom web development, app development and AI automation. Business-first strategy with senior-level delivery.",
+    "Meet Deal in Dev, a US-focused partner for SaaS and CRM development, app development and AI automation. Business-first strategy with senior-level delivery.",
   path: routes.about,
 });
 

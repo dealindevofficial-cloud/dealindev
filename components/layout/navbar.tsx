@@ -54,7 +54,9 @@ function MobileMenu({ pathname }: { pathname: string }) {
                     "focus-ring block rounded-[var(--radius-sm)] px-4 py-3 text-[0.95rem] font-medium transition-colors",
                     isActive(pathname, item.href)
                       ? "bg-accent-soft text-accent-text"
-                      : "text-foreground-muted hover:bg-surface-muted hover:text-foreground",
+                      : item.href === routes.aiSolutions
+                        ? "font-semibold text-accent-text hover:bg-surface-muted"
+                        : "text-foreground-muted hover:bg-surface-muted hover:text-foreground",
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -114,6 +116,26 @@ export function Navbar() {
           <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
             {primaryNavigation.map((item) => {
               const active = isActive(pathname, item.href);
+              if (item.href === routes.aiSolutions) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "focus-ring mx-1 inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-[0.92rem] font-semibold transition-all duration-300",
+                      active
+                        ? "border-accent bg-accent/20 text-foreground"
+                        : "border-accent/50 bg-accent/10 text-accent-text shadow-[0_0_18px_-4px_rgb(52_211_153/0.6)] hover:border-accent hover:bg-accent/20 hover:text-foreground",
+                    )}
+                  >
+                    <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="currentColor">
+                      <path d="M8 0.5 9.6 6.4 15.5 8 9.6 9.6 8 15.5 6.4 9.6 0.5 8 6.4 6.4Z" />
+                    </svg>
+                    {item.label}
+                  </Link>
+                );
+              }
               return (
                 <Link
                   key={item.href}

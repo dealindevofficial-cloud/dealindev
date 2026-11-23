@@ -3,7 +3,7 @@ export const positioningNarrative = {
   title: "Your partner for custom software and AI that drives results.",
   highlight: "drives results",
   description:
-    "We help US businesses turn growth and operations goals into practical digital systems: websites, apps and AI automation, delivered with strategic clarity and hands-on execution.",
+    "We help US businesses turn growth and operations goals into practical digital systems: SaaS platforms, CRMs, apps and AI automation, delivered with strategic clarity and hands-on execution.",
 };
 
 export const missionAndApproach = {

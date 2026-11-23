@@ -30,23 +30,23 @@ export const servicePillars: ServicePillar[] = [
   {
     slug: "website-development",
     icon: "web",
-    title: "Custom Website Development",
+    title: "End-to-End SaaS & CRM Development",
     summary:
-      "Fast, SEO-ready business websites that clarify your offer, build trust and turn visitors into qualified leads.",
+      "Complete SaaS platforms and custom CRMs, from product scoping to launch, built around how your business actually sells and operates.",
     outcomes: [
-      "Clear positioning that helps the right buyers self-qualify faster",
-      "Higher lead quality from intentional page structure and messaging",
-      "Top-tier Core Web Vitals and technical SEO from day one",
+      "One system of record for customers, deals and operations",
+      "Recurring-revenue products that are ready to onboard real users",
+      "Secure, scalable architecture that grows without a rebuild",
     ],
     deliverables: [
-      "Conversion-focused homepage and landing pages",
-      "Responsive design system built on Next.js",
-      "On-page SEO, analytics and performance setup",
+      "Multi-tenant SaaS platforms with auth, roles and billing",
+      "Custom CRMs with pipelines, automations and reporting",
+      "Integrations with your existing tools, analytics and payments",
     ],
     homeOverview: {
-      description: "High-performance websites that communicate value, rank on Google and support your sales process.",
-      outcomeLine: "More trust, better leads, faster decisions.",
-      highlights: ["Business websites", "Landing pages", "Technical SEO"],
+      description: "End-to-end SaaS products and custom CRMs that centralize your data and scale with your customers.",
+      outcomeLine: "One platform, cleaner data, faster growth.",
+      highlights: ["SaaS platforms", "Custom CRMs", "Billing & integrations"],
     },
   },
   {
@@ -119,7 +119,7 @@ export const servicesPageCopy = {
     eyebrow: "Ready to Start",
     title: "Tell us your goals. We will map the fastest path to results.",
     description:
-      "Whether it is a website redesign, a custom app or an AI agent, we will help you identify the highest-impact first move.",
+      "Whether it is a SaaS product, a custom CRM, an app or an AI agent, we will help you identify the highest-impact first move.",
     primaryCta: "Start Your Project",
     secondaryCta: "Explore AI Solutions",
   },

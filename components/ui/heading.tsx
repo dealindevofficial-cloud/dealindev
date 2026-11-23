@@ -22,10 +22,18 @@ const headingSizes: Record<HeadingLevel, string> = {
   3: "text-2xl sm:text-3xl",
 };
 
-export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
+export function Eyebrow({
+  children,
+  className,
+  line = true,
+}: {
+  children: ReactNode;
+  className?: string;
+  line?: boolean;
+}) {
   return (
     <p className={cn("label inline-flex items-center gap-2.5 text-accent-text", className)}>
-      <span aria-hidden className="h-px w-6 bg-current opacity-70" />
+      {line && <span aria-hidden className="h-px w-6 bg-current opacity-70" />}
       {children}
     </p>
   );
